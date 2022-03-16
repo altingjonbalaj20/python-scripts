@@ -14,10 +14,10 @@ dataset = dataset[(dataset['Invoice Date'] >= lastweek)]
 dataset['Day of Week'] = dataset['Invoice Date'].dt.day_name()
 
 dataset = dataset.groupby(['Day of Week']).sum()
-days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday']
+days = ['Sunday','Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday']
 #Sortimi ne baze te diteve
-dataset.index = pd.CategoricalIndex(dataset.index, categories=days, ordered=True)
-dataset = dataset.sort_index()
+orderCriteria = pd.CategoricalIndex(days, categories=days, ordered=True)
+dataset = dataset.reindex(orderCriteria, fill_value = 0)
 
 fig, ax = plt.subplots()
 dataset['Invoice Amount'].plot(kind='bar', color='magenta')

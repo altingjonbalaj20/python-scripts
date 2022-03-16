@@ -16,5 +16,8 @@ dataset['Day of Week'] = dataset['Invoice Date'].dt.day_name()
 dataset = dataset.groupby(['Day of Week']).sum()
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday']
 
+dataset.index = pd.CategoricalDtype(days, ordered=True, dtype='category')
+
+print(dataset)
 ## order index by ordercriteria on days
 

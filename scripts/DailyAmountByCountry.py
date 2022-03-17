@@ -14,12 +14,13 @@ dataset = dataset.groupby(['Country'])
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday']
 
 for i in range(0, len(countries)):
-    temp = dataset.get_group(countries[i])
+    countryName = countries[i]
+    temp = dataset.get_group(countryName)
     temp['Invoice Date'] = pd.to_datetime(temp['Invoice Date'])
-    temp[countries[i]] = temp['Invoice Date'].dt.day_name()
-    temp = temp.groupby(countries[i]).sum()
+    temp[countryName] = temp['Invoice Date'].dt.day_name()
+    temp = temp.groupby(countryName).sum()
     # renditja ne baze te diteve me radhe, dhe emertimi i index per paraqitje tek vizualizimi
-    orderCriteria = pd.CategoricalIndex(days, days, ordered=True, name=countries[i])
+    orderCriteria = pd.CategoricalIndex(days, days, ordered=True, name=countryName)
     temp = temp.reindex(orderCriteria, fill_value = 0)
     countries[i] = temp
 columns = 2;

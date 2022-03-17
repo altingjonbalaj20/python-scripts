@@ -35,9 +35,8 @@ for i in range(0, rows):
         try:
             country = countries[i*columns + j]
             sns.lineplot(data=country, x=country.index, y=country['Invoice Amount'],
-            ax=ax[i][j]).ticklabel_format(style='plain', axis='y')
+            ax=ax[i][j], markers=True, dashes=False).ticklabel_format(style='plain', axis='y')
         except:
             # Hide empty plots
             ax[i][j].axis('off')
-
 plt.show()

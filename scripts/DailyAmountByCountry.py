@@ -9,8 +9,11 @@ import copy
 dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220307.xlsx')
 dataset = dataset[['Invoice Amount','Invoice Date', 'Country']]
 
-countries = ['Switzerland', 'Italy', 'Germany', 'France', 'Belgium', 'Denmark']
 dataset = dataset.groupby(['Country'])
+# renditja e shteve ne baze te Invoice Amount, dhe marrja e 8 shteteve te para
+countries = dataset.sum().sort_values(['Invoice Amount'], ascending = False).head( 8 )
+countries = list(countries.index)
+
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday']
 
 for i in range(0, len(countries)):

@@ -21,7 +21,6 @@ for i in range(0, len(countries)):
     # renditja ne baze te diteve me radhe, dhe emertimi i index per paraqitje tek vizualizimi
     orderCriteria = pd.CategoricalIndex(days, days, ordered=True, name=countries[i])
     temp = temp.reindex(orderCriteria, fill_value = 0)
-
     countries[i] = temp
 columns = 2;
 rows = math.ceil(len(countries) / columns)

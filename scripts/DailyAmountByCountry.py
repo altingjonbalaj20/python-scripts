@@ -11,7 +11,7 @@ dataset = dataset[['Invoice Amount','Invoice Date', 'Country']]
 
 dataset = dataset.groupby(['Country'])
 # renditja e shteve ne baze te Invoice Amount, dhe marrja e 8 shteteve te para
-countries = dataset.sum().sort_values(['Invoice Amount'], ascending = False).head( 8 )
+countries = dataset.sum().sort_values(['Invoice Amount'], ascending = False).head( 4 )
 countries = list(countries.index)
 
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday']
@@ -34,9 +34,8 @@ for i in range(0, rows):
     for j in range(0, columns):
         try:
             country = countries[i*columns + j]
-            sns.lineplot(data=country, x=country.index, y=country['Invoice Amount'], ax=ax[i][j])
-            current_values = ax[i][j].get_yticks()
-            ax[i][j].set_yticklabels(['{:,.0f}'.format(x) for x in current_values])
+            sns.lineplot(data=country, x=country.index, y=country['Invoice Amount'],
+            ax=ax[i][j]).ticklabel_format(style='plain', axis='y')
         except:
             # Hide empty plots
             ax[i][j].axis('off')

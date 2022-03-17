@@ -1,10 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime
 import math
-import numpy as np
 import seaborn as sns
-import copy
 
 dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220307.xlsx')
 dataset = dataset[['Invoice Amount','Invoice Date', 'Country']]

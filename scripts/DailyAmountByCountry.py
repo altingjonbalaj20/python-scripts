@@ -15,6 +15,7 @@ orderCriteria = pd.CategoricalIndex(days, days, ordered=True)
 print(orderCriteria)
 for i in range(0, len(countries)):
     temp = dataset.get_group(countries[i])
+    temp['Invoice Date'] = pd.to_datetime(temp['Invoice Date'])
     temp[countries[i]] = temp['Invoice Date'].dt.day_name()
     temp = temp.groupby(countries[i]).sum()
     temp = temp.reindex(orderCriteria, fill_value = 0)

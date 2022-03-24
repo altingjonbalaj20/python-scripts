@@ -1,10 +1,17 @@
+from itertools import count
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
 import seaborn as sns
+import datetime
 
-dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220307.xlsx')
+dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220324.xlsx')
 dataset = dataset[['Invoice Amount','Invoice Date', 'Country']]
+
+today = datetime.datetime.today()
+lastweek = today - datetime.timedelta(days=7)
+dataset['Invoice Date'] = pd.to_datetime(dataset['Invoice Date'])
+dataset = dataset[(dataset['Invoice Date'] >= lastweek)]
 
 dataset = dataset.groupby(['Country'])
 # renditja e shteve ne baze te Invoice Amount, dhe marrja e 8 shteteve te para
@@ -31,9 +38,14 @@ for i in range(0, rows):
     for j in range(0, columns):
         try:
             country = countries[i*columns + j]
-            sns.lineplot(data=country, x=country.index, y=country['Invoice Amount'],
-            ax=ax[i][j], markers=True, dashes=False).ticklabel_format(style='plain', axis='y')
+            g2 = sns.lineplot(data=country, x=country.index, y=country['Invoice Amount'],
+            ax=ax[i][j], markers=True, dashes=False)
+            g2.set(xticklabels=[])
+            g2.set(title=country.index.name)
+            g2.set(xlabel=None)
         except:
             # Hide empty plots
-            ax[i][j].axis('off')
+            print('ERROR')
+            ax[i][j].set_axis_off()
+plt.tight_layout()
 plt.show()

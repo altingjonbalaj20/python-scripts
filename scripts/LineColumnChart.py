@@ -1,13 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+import pathlib
 
-dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220307.xlsx')
+dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220324.xlsx')
 # print(dataset.keys())
 dataset = dataset[['Invoice Amount', 'Eligible Amount', 'Invoice Date']]
 
 today = datetime.datetime.today()
-lastweek = today - datetime.timedelta(days=40)
+lastweek = today - datetime.timedelta(days=7)
 dataset['Invoice Date'] = pd.to_datetime(dataset['Invoice Date'])
 dataset = dataset[(dataset['Invoice Date'] >= lastweek)]
 

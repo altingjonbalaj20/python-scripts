@@ -15,7 +15,7 @@ dataset = dataset.groupby(['Day of Week']).sum()
 dataset = dataset.sort_values(['Invoice Amount'])
 
 fig, ax = plt.subplots()
-dataset['Invoice Amount'].plot(kind='bar', color='magenta')
+dataset['Invoice Amount'].plot(kind='bar', color='blue')
 
 current_values = plt.gca().get_yticks()
 plt.gca().set_yticklabels(['{:,.0f}'.format(x) for x in current_values])

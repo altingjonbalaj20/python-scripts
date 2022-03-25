@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import datetime
 
 dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220307.xlsx')
-# print(dataset.keys())
+
 dataset = dataset[['Invoice Amount','Invoice Date']]
 
 today = datetime.datetime.today()
@@ -32,5 +32,4 @@ plt.ticklabel_format(style='plain', axis='y')
 ax.legend( bbox_to_anchor =(0.65,1.25), frameon=False)
 plt.tight_layout()
 plt.show()
-## order index by ordercriteria on days
 

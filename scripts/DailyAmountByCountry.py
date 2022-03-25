@@ -9,7 +9,7 @@ dataset = pd.read_excel('Files\InvoiceListReport_TP24_20220324.xlsx')
 dataset = dataset[['Invoice Amount','Invoice Date', 'Country']]
 
 today = datetime.datetime.today()
-lastweek = today - datetime.timedelta(days=7)
+lastweek = today - datetime.timedelta(days=40)
 dataset['Invoice Date'] = pd.to_datetime(dataset['Invoice Date'])
 dataset = dataset[(dataset['Invoice Date'] >= lastweek)]
 
@@ -43,6 +43,7 @@ for i in range(0, rows):
             g2.set(xticklabels=[])
             g2.set(title=country.index.name)
             g2.set(xlabel=None)
+            g2.ticklabel_format(style='plain', axis='y')
         except:
             # Hide empty plots
             print('ERROR')

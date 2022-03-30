@@ -46,7 +46,6 @@ for i in range(0, rows):
             g2.ticklabel_format(style='plain', axis='y')
         except:
             # Hide empty plots
-            print('ERROR')
             ax[i][j].set_axis_off()
 plt.tight_layout()
 plt.show()

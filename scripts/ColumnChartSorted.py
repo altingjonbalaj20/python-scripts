@@ -22,7 +22,7 @@ dataset = dataset.reindex(orderCriteria, fill_value = 0)
 dataset = dataset.sort_values(['Invoice Amount'], ascending=False)
 
 fig, ax = plt.subplots()
-dataset['Invoice Amount'].plot(kind='bar', color='blue')
+dataset['Invoice Amount'].plot(kind='bar', color='')
 
 plt.ticklabel_format(style='plain', axis='y')
 ax.legend(loc = 'upper left', bbox_to_anchor =(0.65, 1.25), frameon=False)

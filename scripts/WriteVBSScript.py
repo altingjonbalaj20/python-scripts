@@ -18,6 +18,7 @@ Set oExcel = CreateObject("Excel.Application")
 Dim oBook
 Set oBook = oExcel.Workbooks.Open(src_file)
 oBook.Worksheets(worksheet_number).Activate
+oBook.DisplayAlerts = FALSE
 
 oBook.SaveAs dest_file, csv_format
 

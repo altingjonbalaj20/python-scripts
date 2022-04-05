@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body header {
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+.main .gauge {
+  position: fixed;
+  background: conic-gradient(from 270deg at 50% 100%, red 0 45deg, orange 45deg, yellow 135deg, green 135deg 180deg);
+  width: 100%;
+  height: 100%;
+  clip-path: circle(50% at 50% 100%);
+  shape-outside: circle(50% at 50% 100%);
+}
+.main .inner-circle {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  clip-path: circle(40% at 50% 100%);
+  shape-outside: circle(50% at 50% 100%);
+}
+.main .bar::before {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  content: "";
+  border-radius: 100px 100px 0 0;
+  background-color: darkblue;
+  transform-origin: 50% 100%;
+  transform: rotate(-60deg);
+}
+.main .bar {
+  position: absolute;
+  clip-path: circle(48% at 50% 100%);
+  overflow: hidden;
+}
+.main .dashboard {
+  justify-content: space-around;
+  position: absolute;
+  bottom: 2%;
+  width: 20%;
+  left: 40%;
+}
+.main .dashboard p {
+  text-align: center;
+}
+.main .dashboard .value {
+  font-size: x-large;
+  color: darkblue;
+}
+.main .dashboard .reference {
+  font-size: large;
+  color: purple;
+}
+.main .dashboard .values {
+  position: absolute;
+  text-align: center;
+  left: 10%;
+  width: 80%;
+  bottom: 0;
+  padding: 2%;
+}
+.main .dashboard .values .value {
+  font-size: x-large;
+  color: darkblue;
+}
+.main .dashboard .values .reference {
+  font-size: small;
+  color: purple;
+}
+.main .threshhold::before {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  content: "";
+  border-radius: 100px 100px 0 0;
+  background-color: cyan;
+  transform-origin: 50% 100%;
+  transform: rotate(179deg);
+}
+.main .threshhold {
+  position: absolute;
+  clip-path: circle(49% at 50% 100%);
+  transform-origin: 50% 100%;
+  transform: rotate(-80deg);
+  overflow: hidden;
+}
+
+
+/*# sourceMappingURL=https://localhost:8080/assets/visual.css.map*/

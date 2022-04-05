@@ -1,13 +1,23 @@
 {
     "dataRoles": [
         {
-            "displayName": "Field",
-            "name": "field",
-            "kind": "Grouping"
+            "displayName": "Value",
+            "name": "value",
+            "kind": "Measure"
         },
         {
-            "displayName": "Threshhold",
-            "name": "threshhold",
+            "displayName": "Reference",
+            "name": "reference",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Min Value",
+            "name": "min",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Max Value",
+            "name": "max",
             "kind": "Measure"
         }
     ],
@@ -62,17 +72,23 @@
         {
             "conditions": [
                 {
-                    "field": {
+                    "value": {
                         "max": 1
                     },
-                    "threshhold":{
+                    "reference":{
                         "max":1
+                    },
+                    "min":{
+                        "max":1
+                    },
+                    "max":{
+                        "max": 1
                     }
                 }
             ],
             "single": {
-                "role": "measure"
-            }
+                "role": "value"
+            } 
         }
     ]
 }

@@ -18,16 +18,17 @@ export class Visual implements IVisual {
     constructor(options: VisualConstructorOptions) {
         this.reactRoot = React.createElement(Gauge, {});
         this.target = options.element;
-
         ReactDOM.render(this.reactRoot, this.target);
     }
     public update(options: VisualUpdateOptions) {
-        if(options.dataViews && options.dataViews[0]){
+        if(options.dataViews && options.dataViews[0] && options.dataViews[1]){
             const dataView: DataView = options.dataViews[0];
         
             Gauge.update({
-                value: Number(dataView.metadata.columns[0].displayName),
-                reference: Number(dataView.single.value)
+                value: Number(dataView.metadata.columns[0]),
+                reference: Number(dataView.metadata.columns[1]),
+                min: Number(dataView.metadata.columns[2]),
+                max: Number(dataView.metadata.columns[3])
             });
         } else {
             this.clear();

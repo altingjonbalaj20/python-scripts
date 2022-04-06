@@ -11,91 +11,89 @@ body header{
 }
 
 .main{
-    display: flex;
-    justify-content: space-around;
-    .gauge {
-        position: fixed;
-        background: conic-gradient( from 270deg at 50% 100%,
-        red 0 45deg, orange 45deg, yellow  135deg, green 135deg 180deg); 
-        width: 100%;
-        height: 100%;
-        clip-path: circle(50% at 50% 100%);
-        shape-outside: circle(50% at 50% 100%);
-    }
-    .inner-circle {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        clip-path: circle(40% at 50% 100%);
-        shape-outside: circle(50% at 50% 100%);
-    }
-    .bar::before{
-        height: inherit;
-        width: inherit;
-        position: absolute;
-        content: "";
-        border-radius: 100px 100px 0 0;
-        background-color: darkblue;
-        transform-origin: 50% 100%;
-        transform: rotate(-60deg);
-    }
-    .bar{
-        position: absolute;
-        overflow: hidden;
-        clip-path: circle(48% at 50% 100%);
-        overflow: hidden;
-    }
-    .dashboard{
-        justify-content: space-around;
-        position: absolute;
-        bottom: 2%;
-        width: 20%;
-        left: 40%;
-        p{
-            text-align: center;
-        }
-        .value{
-            font-size: x-large;
-            color: darkblue;
-        }
-        .reference{
-            font-size: large;
-            color: purple;
-        }
-        .values{
-            position: absolute;
-            text-align: center;
-            left: 10%;
-            width: 80%;
-            bottom: 0;
-            padding: 2%;
-            .value{
-                font-size: x-large;
-                color: darkblue;
-            }
-            .reference{
-                font-size: small;
-                color: purple;
-            }
-        }
-    }
-    .threshhold::before{
-        height: inherit;
-        width: inherit;
-        position: absolute;
-        content: "";
-        border-radius: 100px 100px 0 0;
-        background-color: cyan;
-        transform-origin: 50% 100%;
-        transform: rotate(179deg);
-    }
-    .threshhold{
-        position: absolute;
-        overflow: hidden;
-        clip-path: circle(49% at 50% 100%);
-        transform-origin: 50% 100%;
-        transform: rotate(-80deg);
-        overflow: hidden;
-    }
+    width: 100%;
+    height: 100%;
+}
+
+.main .gauge, .inner-circle, .dashboard, .bar, .threshhold{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+}
+
+.main .gauge{
+    background: conic-gradient( from -90deg at 50% 100%,
+     red 0 45deg, orange 45deg, yellow  135deg, green 135deg 180deg); 
+     clip-path: circle(50% at 50% 100%);
+}
+
+.main .bar{
+    position: absolute;
+    overflow: hidden;
+    clip-path: circle(48% at 50% 100%);
+    overflow: hidden;
+}
+
+.main .bar::before{
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    content: "";
+    border-radius: 100px 100px 0 0;
+    background-color: darkblue;
+    transform-origin: 50% 100%;
+    transform: rotate(-60deg);
+}
+
+.main .inner-circle {
+    background: conic-gradient( from -90deg at 50% 100%,
+     red 0 45deg, orange 45deg, yellow  135deg, green 135deg 180deg); 
+    clip-path: circle(42% at 50% 100%);
+}
+
+.main .dashboard{
+    position: absolute;
+    background-color: white;
+    padding-bottom: 2%;
+    clip-path: circle(40% at 50% 100%);
+}
+
+.dashboard .values{
+    position: absolute;
+    text-align: center;
+    left: 30%;
+    width: 40%;
+    bottom: 0;
+    padding: 2%;
+}
+
+.dashboard .value{
+    font-size: x-large;
+    color: darkblue;
+}
+
+.dashboard .reference{
+    font-size: small;
+    color: purple;
+}
+
+.main .threshhold{
+    position: absolute;
+    overflow: hidden;
+    clip-path: circle(49% at 50% 100%);
+    transform-origin: 50% 100%;
+    transform: rotate(-80deg);
+    overflow: hidden;
+}
+
+.main .threshhold::before{
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    content: "";
+    border-radius: 100px 100px 0 0;
+    background-color: cyan;
+    transform-origin: 50% 100%;
+    transform: rotate(179deg);
 }

@@ -7,35 +7,27 @@ import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;
 import * as React from "react";
 import * as ReactDOM from "react-dom"; 
-import {Gauge, initialState} from "./gauge2";
+import {Gauge, updateGauge, updateState} from "./gauge";
 
 import "./../style/visual.less";
-
+let h = 4;
 export class Visual implements IVisual {
     private target: HTMLElement;
     private reactRoot: React.ComponentElement<any, any>;
-
     constructor(options: VisualConstructorOptions) {
-        this.reactRoot = React.createElement(Gauge, {});
+        this.reactRoot = Gauge();
         this.target = options.element;
         ReactDOM.render(this.reactRoot, this.target);
     }
     public update(options: VisualUpdateOptions) {
-        if(options.dataViews && options.dataViews[0] && options.dataViews[1]){
-            const dataView: DataView = options.dataViews[0];
-        
-            Gauge.update({
-                value: Number(dataView.metadata.columns[0]),
-                reference: Number(dataView.metadata.columns[1]),
-                min: Number(dataView.metadata.columns[2]),
-                max: Number(dataView.metadata.columns[3])
-            });
-        } else {
-            this.clear();
-        }
+        const dataView: DataView = options.dataViews[0];
+    
+        updateState({value:h});
+        h++;
+        updateGauge();
     }
 
     private clear() {
-        Gauge.update(initialState);
+
     }
 }

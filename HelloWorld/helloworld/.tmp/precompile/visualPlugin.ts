@@ -5,8 +5,8 @@ import VisualConstructorOptions = powerbiVisualsApi.extensibility.visual.VisualC
 import DialogConstructorOptions = powerbiVisualsApi.extensibility.visual.DialogConstructorOptions;
 var powerbiKey: any = "powerbi";
 var powerbi: any = window[powerbiKey];
-var helloworld: IVisualPlugin = {
-    name: 'helloworld',
+var helloworld_DEBUG: IVisualPlugin = {
+    name: 'helloworld_DEBUG',
     displayName: 'helloworld',
     class: 'Visual',
     apiVersion: '3.8.0',
@@ -27,6 +27,6 @@ var helloworld: IVisualPlugin = {
 if (typeof powerbi !== "undefined") {
     powerbi.visuals = powerbi.visuals || {};
     powerbi.visuals.plugins = powerbi.visuals.plugins || {};
-    powerbi.visuals.plugins["helloworld"] = helloworld;
+    powerbi.visuals.plugins["helloworld_DEBUG"] = helloworld_DEBUG;
 }
-export default helloworld;
+export default helloworld_DEBUG;

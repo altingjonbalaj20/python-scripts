@@ -11,12 +11,12 @@
             "kind": "Measure"
         },
         {
-            "displayName": "Min Value",
+            "displayName": "Min",
             "name": "min",
             "kind": "Measure"
         },
         {
-            "displayName": "Max Value",
+            "displayName": "Max",
             "name": "max",
             "kind": "Measure"
         }
@@ -76,19 +76,24 @@
                         "max": 1
                     },
                     "reference":{
-                        "max":1
+                        "max": 1
                     },
                     "min":{
-                        "max":1
+                        "max": 1
                     },
                     "max":{
                         "max": 1
                     }
                 }
             ],
-            "single": {
-                "role": "value"
-            } 
+            "table": {
+                "rowCount": {
+                    "preferred": {
+                        "min": 4,
+                        "max": 4
+                    }
+                }
+            }
         }
     ]
 }

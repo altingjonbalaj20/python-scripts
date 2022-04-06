@@ -2,6 +2,9 @@
 DataRefresh/
 Files/
 
+HelloWorld/helloworld/.vscode
+HelloWorld/helloworld/.node_nodules
+
 #Files to ignore
 scripts/FINAL_LimitsReport - Copy.py
 

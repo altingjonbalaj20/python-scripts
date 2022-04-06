@@ -68,6 +68,10 @@
             }
         }
     },
+    "supportsEmptyDataView": false,
+    "sorting": {
+        "default": {}
+    },
     "dataViewMappings": [
         {
             "conditions": [
@@ -113,5 +117,6 @@
                 }
             }
         }
+
     ]
 }

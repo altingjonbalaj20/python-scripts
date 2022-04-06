@@ -9,7 +9,7 @@ var helloworld: IVisualPlugin = {
     name: 'helloworld',
     displayName: 'helloworld',
     class: 'Visual',
-    apiVersion: '3.8.0',
+    apiVersion: '4.2.0',
     create: (options: VisualConstructorOptions) => {
         if (Visual) {
             return new Visual(options);

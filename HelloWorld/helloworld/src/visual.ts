@@ -9,8 +9,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Gauge, updateGauge, updateState } from "./gauge";
 
-const DataType = 2;
-let h = 1;
+const DataChanged:number = 2;
+
 import "./../style/visual.less";
 export class Visual implements IVisual {
     private target: HTMLElement;
@@ -23,15 +23,22 @@ export class Visual implements IVisual {
     public update(options: VisualUpdateOptions) {
         
         // on data change 
-        if (options.type === DataType && options.dataViews[0]) {
+        if (options.type === DataChanged) {
             const dataView: DataView = options.dataViews[0];
-            updateState({
-                value: Number(dataView.table.rows[3].toString()),
-                reference: Number(dataView.table.rows[2].toString()),
-                min: Number(++h),
-                max: Number(++h)
-            });
+            const values = dataView.table.rows[0].map(e => Number(e));
+            try {
+                updateState({
+                    value: values[0],
+                    reference:  values[1],
+                    min:  values[2],
+                    max:  values[3],
+                    test: values
+                });
+            } catch (error) {
+                
+            }
             updateGauge();
+            
         }
     }
 

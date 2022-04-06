@@ -4,21 +4,27 @@ export interface State {
     value: number,
     reference: number,
     min: number,
-    max: number
+    max: number,
+    barAngle: number,
+    referenceAngle: number
 };
 
 const state: State = {
     value: 0,
     reference: 0,
     min: 0,
-    max: 0
+    max: 0,
+    barAngle: 0,
+    referenceAngle: 0
 };
 
-export function updateState(newState: State){
+export function updateState(newState :{value; reference; min; max}){
     state.value = newState.value;
     state.reference = newState.reference;
     state.min = newState.min;
     state.max = newState.max;
+    state.barAngle = - newState.value / (newState.max - newState.min) * 180;
+    state.referenceAngle = newState.reference / (newState.max - newState.min) * 180;
 }
 
 export function updateGauge(){
@@ -26,6 +32,8 @@ export function updateGauge(){
     document.getElementById('reference').innerHTML = `${state.value ? '▲' : '▼'} ${Math.abs(state.value)}`;
     document.getElementById('min').innerHTML = `${state.min}`;
     document.getElementById('max').innerHTML = `${state.max}`;
+    document.getElementById('bar').style.transform = `rotate(${state.barAngle}deg);`;
+    document.getElementById('threshhold').style.transform = `rotate(${state.reference}deg)`;
 };
 
 export function Gauge() {

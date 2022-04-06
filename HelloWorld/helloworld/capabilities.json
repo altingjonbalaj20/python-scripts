@@ -57,7 +57,7 @@
                         "fill": {}
                     }
                 },
-                 "fontSize": {
+                "fontSize": {
                     "displayName": "Text Size",
                     "type": {
                         "formatting": {
@@ -75,23 +75,41 @@
                     "value": {
                         "max": 1
                     },
-                    "reference":{
+                    "reference": {
                         "max": 1
                     },
-                    "min":{
+                    "min": {
                         "max": 1
                     },
-                    "max":{
+                    "max": {
                         "max": 1
                     }
                 }
             ],
             "table": {
-                "rowCount": {
-                    "preferred": {
-                        "min": 4,
-                        "max": 4
-                    }
+                "rows": {
+                    "select": [
+                        {
+                            "for": {
+                                "in": "value"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "reference"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "min"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "max"
+                            }
+                        }
+                    ]
                 }
             }
         }

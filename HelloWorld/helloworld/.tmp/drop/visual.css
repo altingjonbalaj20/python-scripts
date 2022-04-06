@@ -30,6 +30,7 @@ body header {
   position: absolute;
   clip-path: circle(48% at 50% 100%);
   overflow: hidden;
+  transform-origin: 50% 100%;
 }
 .main .bar::before {
   height: inherit;
@@ -39,7 +40,6 @@ body header {
   border-radius: 100px 100px 0 0;
   background-color: darkblue;
   transform-origin: 50% 100%;
-  transform: rotate(-60deg);
 }
 .main .inner-circle {
   background: conic-gradient(from -90deg at 50% 100%, red 0 45deg, orange 45deg, yellow 135deg, green 135deg 180deg);
@@ -71,7 +71,6 @@ body header {
   position: absolute;
   clip-path: circle(49% at 50% 100%);
   transform-origin: 50% 100%;
-  transform: rotate(-80deg);
   overflow: hidden;
 }
 .main .threshhold::before {
@@ -82,6 +81,6 @@ body header {
   border-radius: 100px 100px 0 0;
   background-color: cyan;
   transform-origin: 50% 100%;
-  transform: rotate(179deg);
+  transform: rotate(-179deg);
 }
 

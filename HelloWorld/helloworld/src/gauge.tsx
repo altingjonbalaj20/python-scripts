@@ -32,10 +32,10 @@ export function Gauge() {
     return (
         <div className="main">
             <div className="gauge"></div>
-            <div className="bar"></div>
-            <div className="threshhold"></div>
+            <div className="bar" id='bar'></div>
+            <div className="threshhold" id='threshhold'></div>
             <div className="inner-circle"></div>
-            <div className="dashboard">
+            <div className="dashboard" id='dashboard'>
                 <div className="values">
                     <p className="value" id='value'>{state.value}</p>
                     <p className="reference" id='reference'>{state.value - state.reference > 0 ? '▲' : '▼'} {Math.abs(state.value - state.reference)}</p>

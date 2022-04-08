@@ -69,9 +69,6 @@
         }
     },
     "supportsEmptyDataView": false,
-    "sorting": {
-        "default": {}
-    },
     "dataViewMappings": [
         {
             "conditions": [
@@ -90,28 +87,20 @@
                     }
                 }
             ],
-            "categorical": {
-                "values": {
+            "matrix": {
+                "rows": {
                     "select": [
                         {
-                            "bind": {
-                                "to": "value"
-                            }
+                            "for": {"in": "value"}
                         },
                         {
-                            "bind": {
-                                "to": "reference"
-                            }
+                            "for": {"in": "reference"}
                         },
                         {
-                            "bind": {
-                                "to": "min"
-                            }
+                            "for": {"in": "min"}
                         },
                         {
-                            "bind": {
-                                "to": "max"
-                            }
+                            "for": {"in": "max"}
                         }
                     ]
                 }

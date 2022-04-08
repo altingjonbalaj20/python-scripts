@@ -25,7 +25,7 @@ export class Visual implements IVisual {
         // on data change 
         if (options.type === DataChanged) {
             const dataView: DataView = options.dataViews[0];
-            const values = dataView.categorical.values.map(e => Number(e));
+            const values = dataView.matrix.rows.root.children.toString();
             try {
                 updateState({
                     value: values[0],
@@ -40,9 +40,5 @@ export class Visual implements IVisual {
             updateGauge();
             
         }
-    }
-
-    private clear() {
-
     }
 }

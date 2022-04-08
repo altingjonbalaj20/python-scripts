@@ -34,6 +34,7 @@ body header {
   position: absolute;
   clip-path: circle(48% at 50% 100%);
   overflow: hidden;
+  border-radius: 100% 100% 0 0;
   transform-origin: 50% 100%;
 }
 .main .bar::before {
@@ -44,6 +45,7 @@ body header {
   border-radius: 100px 100px 0 0;
   background-color: darkblue;
   transform-origin: 50% 100%;
+  transition: 1.5s ease-in-out;
   transform: rotate(var(--barAngle));
 }
 .main .inner-circle {
@@ -77,6 +79,7 @@ body header {
   overflow: hidden;
   clip-path: circle(49% at 50% 100%);
   transform-origin: 50% 100%;
+  transition: 1.5s ease-in-out;
   transform: rotate(var(--referenceAngle));
 }
 .main .threshhold::before {

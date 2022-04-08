@@ -1,13 +1,23 @@
 {
     "dataRoles": [
         {
-            "displayName": "Category Data",
-            "name": "category",
-            "kind": "Grouping"
+            "displayName": "Value",
+            "name": "value",
+            "kind": "Measure"
         },
         {
-            "displayName": "Measure Data",
-            "name": "measure",
+            "displayName": "Reference",
+            "name": "reference",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Min",
+            "name": "min",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Max",
+            "name": "max",
             "kind": "Measure"
         }
     ],
@@ -47,7 +57,7 @@
                         "fill": {}
                     }
                 },
-                 "fontSize": {
+                "fontSize": {
                     "displayName": "Text Size",
                     "type": {
                         "formatting": {
@@ -58,22 +68,49 @@
             }
         }
     },
+    "supportsEmptyDataView": false,
+    "sorting": {
+        "default": {}
+    },
     "dataViewMappings": [
         {
-            "categorical": {
-                "categories": {
-                    "for": {
-                        "in": "category"
+            "conditions": [
+                {
+                    "value": {
+                        "max": 1
                     },
-                    "dataReductionAlgorithm": {
-                        "top": {}
+                    "reference": {
+                        "max": 1
+                    },
+                    "min": {
+                        "max": 1
+                    },
+                    "max": {
+                        "max": 1
                     }
-                },
+                }
+            ],
+            "categorical": {
                 "values": {
                     "select": [
                         {
                             "bind": {
-                                "to": "measure"
+                                "to": "value"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "reference"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "min"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "max"
                             }
                         }
                     ]

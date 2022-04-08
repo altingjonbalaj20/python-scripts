@@ -1,1 +1,25 @@
-{"visual":{"name":"gaugeVisualisation","displayName":"GaugeVisualisation","guid":"gaugeVisualisation67EF5955378C4555B8A08AED3922C26C","visualClassName":"Visual","version":"1.0.0","description":"","supportUrl":"","gitHubUrl":""},"apiVersion":"3.8.0","author":{"name":"","email":""},"assets":{"icon":"assets/icon.png"},"externalJS":null,"style":"style/visual.less","capabilities":"capabilities.json","dependencies":null,"stringResources":[]}
+{
+    "visual": {
+        "name": "helloworld",
+        "displayName": "helloworld",
+        "guid": "helloworld",
+        "visualClassName": "Visual",
+        "version": "1.0.0",
+        "description": "h",
+        "supportUrl": "h",
+        "gitHubUrl": "h"
+    },
+    "apiVersion": "4.2.0",
+    "author": {
+        "name": "h",
+        "email": "h"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": []
+}

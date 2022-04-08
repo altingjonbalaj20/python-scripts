@@ -25,7 +25,7 @@ export class Visual implements IVisual {
         // on data change 
         if (options.type === DataChanged) {
             const dataView: DataView = options.dataViews[0];
-            const values = dataView.table.rows[0].map(e => Number(e));
+            const values = dataView.categorical.values.map(e => Number(e));
             try {
                 updateState({
                     value: values[0],

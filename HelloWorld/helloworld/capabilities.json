@@ -90,33 +90,32 @@
                     }
                 }
             ],
-            "table": {
-                "rows": {
+            "categorical": {
+                "values": {
                     "select": [
                         {
-                            "for": {
-                                "in": "value"
+                            "bind": {
+                                "to": "value"
                             }
                         },
                         {
-                            "for": {
-                                "in": "reference"
+                            "bind": {
+                                "to": "reference"
                             }
                         },
                         {
-                            "for": {
-                                "in": "min"
+                            "bind": {
+                                "to": "min"
                             }
                         },
                         {
-                            "for": {
-                                "in": "max"
+                            "bind": {
+                                "to": "max"
                             }
                         }
                     ]
                 }
             }
         }
-
     ]
 }

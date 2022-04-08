@@ -87,20 +87,28 @@
                     }
                 }
             ],
-            "matrix": {
+            "table": {
                 "rows": {
                     "select": [
                         {
-                            "for": {"in": "value"}
+                            "for": {
+                                "in": "value"
+                            }
                         },
                         {
-                            "for": {"in": "reference"}
+                            "for": {
+                                "in": "reference"
+                            }
                         },
                         {
-                            "for": {"in": "min"}
+                            "for": {
+                                "in": "min"
+                            }
                         },
                         {
-                            "for": {"in": "max"}
+                            "for": {
+                                "in": "max"
+                            }
                         }
                     ]
                 }

@@ -1,3 +1,7 @@
+:root {
+  --barAngle: 0deg;
+  --referenceAngle: 0deg;
+}
 * {
   padding: 0;
   margin: 0;
@@ -40,6 +44,7 @@ body header {
   border-radius: 100px 100px 0 0;
   background-color: darkblue;
   transform-origin: 50% 100%;
+  transform: rotate(var(--barAngle));
 }
 .main .inner-circle {
   background: conic-gradient(from -90deg at 50% 100%, red 0 45deg, orange 45deg, yellow 135deg, green 135deg 180deg);
@@ -69,9 +74,10 @@ body header {
 }
 .main .threshhold {
   position: absolute;
+  overflow: hidden;
   clip-path: circle(49% at 50% 100%);
   transform-origin: 50% 100%;
-  overflow: hidden;
+  transform: rotate(var(--referenceAngle));
 }
 .main .threshhold::before {
   height: inherit;

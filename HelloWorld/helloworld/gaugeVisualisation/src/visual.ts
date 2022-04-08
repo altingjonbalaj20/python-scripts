@@ -9,7 +9,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Gauge, updateGauge, updateState } from "./gauge";
 
-const DataChanged:number = 2;
+const DataChanged: number = 2;
 
 import "./../style/visual.less";
 export class Visual implements IVisual {
@@ -25,17 +25,23 @@ export class Visual implements IVisual {
         // on data change 
         if (options.type === DataChanged) {
             const dataView: DataView = options.dataViews[0];
-            const values = dataView.matrix.rows.root.children.toString();
+            const values = dataView.table.rows.toString().split(',');
             try {
                 updateState({
                     value: values[0],
                     reference:  values[1],
                     min:  values[2],
                     max:  values[3],
-                    test: values
+                    test: dataView.table.rows
                 });
             } catch (error) {
-                
+                updateState({
+                    value: 1,
+                    reference:  2,
+                    min:  2,
+                    max:  3,
+                    test: 'ERROR'
+                });
             }
             updateGauge();
             
